@@ -198,6 +198,45 @@
     position:relative;
   }
 
+  .tulip{
+    position:absolute;
+    width:clamp(50px, 12vw, 90px);
+    z-index:0;
+    pointer-events:none;
+    transform-origin:50% 97%;
+    animation: tulip-sway 5.5s ease-in-out infinite, tulip-bloom 1s ease-out backwards;
+  }
+  .tulip svg{ width:100%; height:auto; display:block; overflow:visible; }
+  .tulip .flower{
+    transform-box:fill-box;
+    transform-origin:50% 65%;
+    animation: petal-breathe 4.2s ease-in-out infinite;
+  }
+
+  @keyframes tulip-sway{
+    0%,100%{ transform: rotate(calc(var(--rot) - 2.6deg)); }
+    50%{ transform: rotate(calc(var(--rot) + 2.6deg)); }
+  }
+  @keyframes tulip-bloom{
+    0%{ opacity:0; transform: rotate(var(--rot)) scale(.55); }
+    100%{ opacity:1; transform: rotate(var(--rot)) scale(1); }
+  }
+  @keyframes petal-breathe{
+    0%,100%{ transform: scale(1) rotate(0deg); }
+    50%{ transform: scale(1.035) rotate(1deg); }
+  }
+
+  .t1{ top:-10px; left:-16px; --rot:-6deg; animation-delay: 0s, 0s; }
+  .t2{ top:2%; right:2%; --rot:10deg; animation-delay: .7s, .15s; }
+  .t3{ bottom:-14px; left:5%; --rot:4deg; animation-delay: 1.3s, .3s; }
+  .t4{ bottom:2%; right:4%; --rot:-8deg; animation-delay: .4s, .45s; }
+  .t5{ top:42%; left:-24px; --rot:14deg; opacity:.9; animation-delay: 1.8s, .6s; }
+  .t6{ top:38%; right:-20px; --rot:-12deg; opacity:.9; animation-delay: 1s, .75s; }
+
+  @media (prefers-reduced-motion: reduce){
+    .tulip, .tulip .flower{ animation: none; transform: rotate(var(--rot)); }
+  }
+
   .music-toggle {
     position: fixed;
     bottom: 20px;
@@ -474,6 +513,14 @@
 
   <!-- SCENE 2: letters -->
   <div class="scene" id="scene-letters">
+    <!-- Tulips SVG Elements -->
+    <div class="tulip t1"><svg viewBox="0 0 100 200"><path d="M50 200 Q45 130 50 80" stroke="#6b8f5a" stroke-width="5" fill="none"/><path d="M50 150 Q20 130 15 100 C30 110 45 130 50 150 Z" fill="#6b8f5a"/><g class="flower"><path d="M50 85 C20 85 20 45 35 30 C50 60 50 85 50 85 Z" fill="#e8798a"/><path d="M50 85 C80 85 80 45 65 30 C50 60 50 85 50 85 Z" fill="#e8798a"/><path d="M50 85 C30 75 25 35 50 20 C75 35 70 75 50 85 Z" fill="#f4c6ce"/></g></svg></div>
+    <div class="tulip t2"><svg viewBox="0 0 100 200"><path d="M50 200 Q55 130 50 80" stroke="#6b8f5a" stroke-width="5" fill="none"/><path d="M50 140 Q80 120 85 90 C70 100 55 120 50 140 Z" fill="#6b8f5a"/><g class="flower"><path d="M50 85 C20 85 20 45 35 30 C50 60 50 85 50 85 Z" fill="#c85a6b"/><path d="M50 85 C80 85 80 45 65 30 C50 60 50 85 50 85 Z" fill="#c85a6b"/><path d="M50 85 C30 75 25 35 50 20 C75 35 70 75 50 85 Z" fill="#e8798a"/></g></svg></div>
+    <div class="tulip t3"><svg viewBox="0 0 100 200"><path d="M50 200 Q45 130 50 80" stroke="#6b8f5a" stroke-width="5" fill="none"/><g class="flower"><path d="M50 85 C20 85 20 45 35 30 C50 60 50 85 50 85 Z" fill="#e8798a"/><path d="M50 85 C80 85 80 45 65 30 C50 60 50 85 50 85 Z" fill="#e8798a"/><path d="M50 85 C30 75 25 35 50 20 C75 35 70 75 50 85 Z" fill="#f4c6ce"/></g></svg></div>
+    <div class="tulip t4"><svg viewBox="0 0 100 200"><path d="M50 200 Q55 130 50 80" stroke="#6b8f5a" stroke-width="5" fill="none"/><path d="M50 150 Q20 130 15 100 C30 110 45 130 50 150 Z" fill="#6b8f5a"/><g class="flower"><path d="M50 85 C20 85 20 45 35 30 C50 60 50 85 50 85 Z" fill="#c85a6b"/><path d="M50 85 C80 85 80 45 65 30 C50 60 50 85 50 85 Z" fill="#c85a6b"/><path d="M50 85 C30 75 25 35 50 20 C75 35 70 75 50 85 Z" fill="#eb8a97"/></g></svg></div>
+    <div class="tulip t5"><svg viewBox="0 0 100 200"><path d="M50 200 Q45 130 50 80" stroke="#6b8f5a" stroke-width="5" fill="none"/><g class="flower"><path d="M50 85 C20 85 20 45 35 30 C50 60 50 85 50 85 Z" fill="#e8798a"/><path d="M50 85 C80 85 80 45 65 30 C50 60 50 85 50 85 Z" fill="#e8798a"/><path d="M50 85 C30 75 25 35 50 20 C75 35 70 75 50 85 Z" fill="#f4c6ce"/></g></svg></div>
+    <div class="tulip t6"><svg viewBox="0 0 100 200"><path d="M50 200 Q55 130 50 80" stroke="#6b8f5a" stroke-width="5" fill="none"/><g class="flower"><path d="M50 85 C20 85 20 45 35 30 C50 60 50 85 50 85 Z" fill="#c85a6b"/><path d="M50 85 C80 85 80 45 65 30 C50 60 50 85 50 85 Z" fill="#c85a6b"/><path d="M50 85 C30 75 25 35 50 20 C75 35 70 75 50 85 Z" fill="#e8798a"/></g></svg></div>
+
     <div class="tabs" id="tabs">
       <button class="tab" data-letter="1">1</button>
       <button class="tab" data-letter="2">2</button>
@@ -518,6 +565,8 @@
             <linearGradient id="paper1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fbf7f2"/><stop offset="100%" stop-color="#ead9c8"/></linearGradient>
             <linearGradient id="paper2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fffdfb"/><stop offset="100%" stop-color="#f0e2d4"/></linearGradient>
             <linearGradient id="stem" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87a96d"/><stop offset="100%" stop-color="#55754c"/></linearGradient>
+            <radialGradient id="rosePink"><stop offset="0%" stop-color="#ffd8e3"/><stop offset="60%" stop-color="#ef9cb4"/><stop offset="100%" stop-color="#cb6784"/></radialGradient>
+            <radialGradient id="roseCream"><stop offset="0%" stop-color="#ffffff"/><stop offset="70%" stop-color="#f9e9de"/><stop offset="100%" stop-color="#ead3c8"/></radialGradient>
           </defs>
           <path d="M120 240 L210 500 L70 330" fill="url(#paper1)" opacity=".95"/>
           <path d="M300 240 L210 500 L350 330" fill="url(#paper2)" opacity=".95"/>
@@ -534,6 +583,23 @@
           <g fill="#6f9163">
             <path d="M180 270 C145 250 145 210 178 215 C198 225 194 255 180 270Z"/>
             <path d="M240 255 C280 245 290 205 248 210 C228 220 228 245 240 255Z"/>
+          </g>
+          <!-- Flower Roses / Petals -->
+          <g>
+            <!-- Center Rose -->
+            <circle cx="210" cy="160" r="38" fill="url(#rosePink)"/>
+            <circle cx="210" cy="160" r="24" fill="#ef9cb4" opacity=".6"/>
+            <path d="M195 150 C205 135 225 135 230 150 C215 165 200 160 195 150 Z" fill="#cb6784"/>
+            <!-- Top Left Rose -->
+            <circle cx="145" cy="185" r="32" fill="url(#roseCream)"/>
+            <circle cx="145" cy="185" r="18" fill="#f9e9de" opacity=".6"/>
+            <!-- Top Right Rose -->
+            <circle cx="275" cy="185" r="32" fill="url(#rosePink)"/>
+            <circle cx="275" cy="185" r="18" fill="#ef9cb4" opacity=".6"/>
+            <!-- Outer Left Rose -->
+            <circle cx="95" cy="235" r="28" fill="url(#rosePink)"/>
+            <!-- Outer Right Rose -->
+            <circle cx="325" cy="240" r="28" fill="url(#roseCream)"/>
           </g>
         </svg>
       </div>
