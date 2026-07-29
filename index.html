@@ -560,7 +560,7 @@
       <div class="divider"></div>
 
       <div class="bouquet-wrapper">
-        <svg viewBox="0 0 500 620" class="bouquet-svg">
+        <svg viewBox="0 0 500 700" class="bouquet-svg">
           <defs>
             <!-- Leaf Gradients -->
             <linearGradient id="leafGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -612,6 +612,21 @@
               <stop offset="50%" stop-color="#e8798a"/>
               <stop offset="100%" stop-color="#9e3b4b"/>
             </linearGradient>
+
+            <!-- Realistic layered petal, tip pointing up (-y), base at origin -->
+            <path id="petal" d="M0,-4 C-15,-16 -21,-40 -13,-62 C-8,-74 8,-74 13,-62 C21,-40 15,-16 0,-4 Z"/>
+
+            <radialGradient id="tagPaper" cx="35%" cy="30%" r="80%">
+              <stop offset="0%" stop-color="#fdf6ea"/>
+              <stop offset="100%" stop-color="#e8d3ae"/>
+            </radialGradient>
+
+            <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+              <feOffset dx="0" dy="3" result="off"/>
+              <feComponentTransfer><feFuncA type="linear" slope="0.25"/></feComponentTransfer>
+              <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
           </defs>
 
           <!-- BACK WRAPPER PAPER -->
@@ -649,61 +664,221 @@
           <!-- FLOWERS LAYER -->
 
           <!-- 1. Top Left - Cream Rose -->
-          <g transform="translate(170, 150)">
+          <g transform="translate(170, 150) rotate(-6)" filter="url(#softShadow)">
+            <ellipse cx="0" cy="10" rx="36" ry="26" fill="#3c2d29" opacity="0.12"/>
             <circle cx="0" cy="0" r="42" fill="url(#roseCream)"/>
-            <path d="M -25 -10 C -20 -35 20 -35 25 -10 C 35 15 -5 40 -25 -10 Z" fill="#eddcd0" opacity="0.7"/>
-            <path d="M -15 -5 C -10 -25 15 -25 18 -5 C 22 10 -5 25 -15 -5 Z" fill="#d0b4a1" opacity="0.8"/>
-            <path d="M -8 -2 C -5 -15 10 -15 10 -2 C 12 5 -2 12 -8 -2 Z" fill="#a6846f"/>
+            <g transform="scale(0.6)">
+              <use href="#petal" fill="#cdb69e" transform="rotate(0)"/>
+              <use href="#petal" fill="#cdb69e" transform="rotate(60)"/>
+              <use href="#petal" fill="#cdb69e" transform="rotate(120)"/>
+              <use href="#petal" fill="#cdb69e" transform="rotate(180)"/>
+              <use href="#petal" fill="#cdb69e" transform="rotate(240)"/>
+              <use href="#petal" fill="#cdb69e" transform="rotate(300)"/>
+              <g transform="scale(0.7)">
+                <use href="#petal" fill="#ecd9c8" transform="rotate(30)"/>
+                <use href="#petal" fill="#ecd9c8" transform="rotate(90)"/>
+                <use href="#petal" fill="#ecd9c8" transform="rotate(150)"/>
+                <use href="#petal" fill="#ecd9c8" transform="rotate(210)"/>
+                <use href="#petal" fill="#ecd9c8" transform="rotate(270)"/>
+                <use href="#petal" fill="#ecd9c8" transform="rotate(330)"/>
+              </g>
+              <g transform="scale(0.4)">
+                <use href="#petal" fill="#fdf6ee" transform="rotate(15)"/>
+                <use href="#petal" fill="#fdf6ee" transform="rotate(87)"/>
+                <use href="#petal" fill="#fdf6ee" transform="rotate(159)"/>
+                <use href="#petal" fill="#fdf6ee" transform="rotate(231)"/>
+                <use href="#petal" fill="#fdf6ee" transform="rotate(303)"/>
+              </g>
+              <path d="M-9,-3 C-9,-20 9,-20 9,-3 C11,6 -3,12 -9,-3 Z" fill="#a9876f"/>
+            </g>
           </g>
 
           <!-- 2. Top Right - Soft Pink Rose -->
-          <g transform="translate(320, 150)">
+          <g transform="translate(320, 150) rotate(8)" filter="url(#softShadow)">
+            <ellipse cx="0" cy="10" rx="38" ry="27" fill="#3c2d29" opacity="0.12"/>
             <circle cx="0" cy="0" r="44" fill="url(#roseSoft)"/>
-            <path d="M -28 -12 C -20 -38 22 -38 28 -12 C 38 18 -8 42 -28 -12 Z" fill="#fca2b7" opacity="0.7"/>
-            <path d="M -18 -6 C -10 -28 15 -28 20 -6 C 24 12 -8 28 -18 -6 Z" fill="#e06984" opacity="0.8"/>
-            <path d="M -9 -2 C -5 -18 10 -18 10 -2 C 12 7 -4 14 -9 -2 Z" fill="#b0334f"/>
+            <g transform="scale(0.63)">
+              <use href="#petal" fill="#c23f5e" transform="rotate(10)"/>
+              <use href="#petal" fill="#c23f5e" transform="rotate(70)"/>
+              <use href="#petal" fill="#c23f5e" transform="rotate(130)"/>
+              <use href="#petal" fill="#c23f5e" transform="rotate(190)"/>
+              <use href="#petal" fill="#c23f5e" transform="rotate(250)"/>
+              <use href="#petal" fill="#c23f5e" transform="rotate(310)"/>
+              <g transform="scale(0.7)">
+                <use href="#petal" fill="#f0a0b7" transform="rotate(40)"/>
+                <use href="#petal" fill="#f0a0b7" transform="rotate(100)"/>
+                <use href="#petal" fill="#f0a0b7" transform="rotate(160)"/>
+                <use href="#petal" fill="#f0a0b7" transform="rotate(220)"/>
+                <use href="#petal" fill="#f0a0b7" transform="rotate(280)"/>
+                <use href="#petal" fill="#f0a0b7" transform="rotate(340)"/>
+              </g>
+              <g transform="scale(0.4)">
+                <use href="#petal" fill="#ffe1ea" transform="rotate(20)"/>
+                <use href="#petal" fill="#ffe1ea" transform="rotate(92)"/>
+                <use href="#petal" fill="#ffe1ea" transform="rotate(164)"/>
+                <use href="#petal" fill="#ffe1ea" transform="rotate(236)"/>
+                <use href="#petal" fill="#ffe1ea" transform="rotate(308)"/>
+              </g>
+              <path d="M-9,-3 C-9,-20 9,-20 9,-3 C11,6 -3,12 -9,-3 Z" fill="#7a1830"/>
+            </g>
           </g>
 
           <!-- 3. Outer Left - Deep Red/Pink Rose -->
-          <g transform="translate(115, 220)">
+          <g transform="translate(115, 220) rotate(-10)" filter="url(#softShadow)">
+            <ellipse cx="0" cy="9" rx="32" ry="23" fill="#3c2d29" opacity="0.12"/>
             <circle cx="0" cy="0" r="38" fill="url(#roseDark)"/>
-            <path d="M -22 -10 C -15 -30 18 -30 22 -10 C 30 12 -5 32 -22 -10 Z" fill="#d64963" opacity="0.7"/>
-            <path d="M -14 -4 C -8 -20 12 -20 15 -4 C 18 8 -5 20 -14 -4 Z" fill="#9e243b" opacity="0.8"/>
-            <path d="M -7 -1 C -4 -12 8 -12 8 -1 C 9 4 -3 9 -7 -1 Z" fill="#5e0c1b"/>
+            <g transform="scale(0.54)">
+              <use href="#petal" fill="#4a0916" transform="rotate(5)"/>
+              <use href="#petal" fill="#4a0916" transform="rotate(65)"/>
+              <use href="#petal" fill="#4a0916" transform="rotate(125)"/>
+              <use href="#petal" fill="#4a0916" transform="rotate(185)"/>
+              <use href="#petal" fill="#4a0916" transform="rotate(245)"/>
+              <use href="#petal" fill="#4a0916" transform="rotate(305)"/>
+              <g transform="scale(0.7)">
+                <use href="#petal" fill="#9e243b" transform="rotate(35)"/>
+                <use href="#petal" fill="#9e243b" transform="rotate(95)"/>
+                <use href="#petal" fill="#9e243b" transform="rotate(155)"/>
+                <use href="#petal" fill="#9e243b" transform="rotate(215)"/>
+                <use href="#petal" fill="#9e243b" transform="rotate(275)"/>
+                <use href="#petal" fill="#9e243b" transform="rotate(335)"/>
+              </g>
+              <g transform="scale(0.4)">
+                <use href="#petal" fill="#d6647b" transform="rotate(18)"/>
+                <use href="#petal" fill="#d6647b" transform="rotate(90)"/>
+                <use href="#petal" fill="#d6647b" transform="rotate(162)"/>
+                <use href="#petal" fill="#d6647b" transform="rotate(234)"/>
+                <use href="#petal" fill="#d6647b" transform="rotate(306)"/>
+              </g>
+              <path d="M-9,-3 C-9,-20 9,-20 9,-3 C11,6 -3,12 -9,-3 Z" fill="#2e050c"/>
+            </g>
           </g>
 
           <!-- 4. Outer Right - Cream Rose -->
-          <g transform="translate(385, 220)">
+          <g transform="translate(385, 220) rotate(9)" filter="url(#softShadow)">
+            <ellipse cx="0" cy="9" rx="32" ry="23" fill="#3c2d29" opacity="0.12"/>
             <circle cx="0" cy="0" r="38" fill="url(#roseCream)"/>
-            <path d="M -22 -10 C -15 -30 18 -30 22 -10 C 30 12 -5 32 -22 -10 Z" fill="#eddcd0" opacity="0.7"/>
-            <path d="M -14 -4 C -8 -20 12 -20 15 -4 C 18 8 -5 20 -14 -4 Z" fill="#d0b4a1" opacity="0.8"/>
-            <path d="M -7 -1 C -4 -12 8 -12 8 -1 C 9 4 -3 9 -7 -1 Z" fill="#a6846f"/>
+            <g transform="scale(0.54)">
+              <use href="#petal" fill="#cdb69e" transform="rotate(20)"/>
+              <use href="#petal" fill="#cdb69e" transform="rotate(80)"/>
+              <use href="#petal" fill="#cdb69e" transform="rotate(140)"/>
+              <use href="#petal" fill="#cdb69e" transform="rotate(200)"/>
+              <use href="#petal" fill="#cdb69e" transform="rotate(260)"/>
+              <use href="#petal" fill="#cdb69e" transform="rotate(320)"/>
+              <g transform="scale(0.7)">
+                <use href="#petal" fill="#ecd9c8" transform="rotate(50)"/>
+                <use href="#petal" fill="#ecd9c8" transform="rotate(110)"/>
+                <use href="#petal" fill="#ecd9c8" transform="rotate(170)"/>
+                <use href="#petal" fill="#ecd9c8" transform="rotate(230)"/>
+                <use href="#petal" fill="#ecd9c8" transform="rotate(290)"/>
+                <use href="#petal" fill="#ecd9c8" transform="rotate(350)"/>
+              </g>
+              <g transform="scale(0.4)">
+                <use href="#petal" fill="#fdf6ee" transform="rotate(30)"/>
+                <use href="#petal" fill="#fdf6ee" transform="rotate(102)"/>
+                <use href="#petal" fill="#fdf6ee" transform="rotate(174)"/>
+                <use href="#petal" fill="#fdf6ee" transform="rotate(246)"/>
+                <use href="#petal" fill="#fdf6ee" transform="rotate(318)"/>
+              </g>
+              <path d="M-9,-3 C-9,-20 9,-20 9,-3 C11,6 -3,12 -9,-3 Z" fill="#a9876f"/>
+            </g>
           </g>
 
           <!-- 5. Center Main Large Rose -->
-          <g transform="translate(245, 210)">
+          <g transform="translate(245, 210)" filter="url(#softShadow)">
+            <ellipse cx="0" cy="14" rx="48" ry="34" fill="#3c2d29" opacity="0.14"/>
             <circle cx="0" cy="0" r="54" fill="url(#roseSoft)"/>
-            <!-- Outer Petal Details -->
-            <path d="M -45 0 C -40 -40 0 -52 35 -35 C 55 -10 45 35 15 48 C -20 55 -50 30 -45 0 Z" fill="#ffd1df" opacity="0.6"/>
-            <path d="M -32 -15 C -25 -45 25 -45 32 -15 C 45 20 -10 50 -32 -15 Z" fill="#f79bb0" opacity="0.75"/>
-            <path d="M -22 -8 C -12 -32 18 -32 24 -8 C 30 15 -8 32 -22 -8 Z" fill="#dc5270" opacity="0.85"/>
-            <path d="M -12 -3 C -6 -20 12 -20 14 -3 C 18 9 -5 20 -12 -3 Z" fill="#a82843"/>
-            <path d="M -5 0 C -2 -10 6 -10 7 0 C 8 5 -2 8 -5 0 Z" fill="#6e0f22"/>
+            <!-- Outermost loose guard petals -->
+            <path d="M -48 4 C -46 -36 -8 -58 20 -46 C 15 -30 -10 -18 -20 6 C -30 24 -44 22 -48 4 Z" fill="#ffd1df" opacity="0.55"/>
+            <path d="M 46 6 C 46 -32 10 -56 -18 -44 C -12 -28 12 -16 22 8 C 30 26 42 24 46 6 Z" fill="#ffd1df" opacity="0.55"/>
+            <g transform="scale(0.77)">
+              <use href="#petal" fill="#c23f5e" transform="rotate(0)"/>
+              <use href="#petal" fill="#c23f5e" transform="rotate(51)"/>
+              <use href="#petal" fill="#c23f5e" transform="rotate(102)"/>
+              <use href="#petal" fill="#c23f5e" transform="rotate(153)"/>
+              <use href="#petal" fill="#c23f5e" transform="rotate(204)"/>
+              <use href="#petal" fill="#c23f5e" transform="rotate(255)"/>
+              <use href="#petal" fill="#c23f5e" transform="rotate(306)"/>
+              <g transform="scale(0.68)">
+                <use href="#petal" fill="#e5678a" transform="rotate(25)"/>
+                <use href="#petal" fill="#e5678a" transform="rotate(85)"/>
+                <use href="#petal" fill="#e5678a" transform="rotate(145)"/>
+                <use href="#petal" fill="#e5678a" transform="rotate(205)"/>
+                <use href="#petal" fill="#e5678a" transform="rotate(265)"/>
+                <use href="#petal" fill="#e5678a" transform="rotate(325)"/>
+              </g>
+              <g transform="scale(0.4)">
+                <use href="#petal" fill="#ffcede" transform="rotate(10)"/>
+                <use href="#petal" fill="#ffcede" transform="rotate(82)"/>
+                <use href="#petal" fill="#ffcede" transform="rotate(154)"/>
+                <use href="#petal" fill="#ffcede" transform="rotate(226)"/>
+                <use href="#petal" fill="#ffcede" transform="rotate(298)"/>
+              </g>
+              <g transform="scale(0.22)">
+                <use href="#petal" fill="#fff2f6" transform="rotate(40)"/>
+                <use href="#petal" fill="#fff2f6" transform="rotate(160)"/>
+                <use href="#petal" fill="#fff2f6" transform="rotate(280)"/>
+              </g>
+              <path d="M-9,-4 C-9,-22 9,-22 9,-4 C12,7 -4,13 -9,-4 Z" fill="#6e0f22"/>
+            </g>
           </g>
 
           <!-- 6. Bottom Center Soft Rose -->
-          <g transform="translate(200, 275)">
+          <g transform="translate(200, 275) rotate(-5)" filter="url(#softShadow)">
+            <ellipse cx="0" cy="9" rx="34" ry="24" fill="#3c2d29" opacity="0.13"/>
             <circle cx="0" cy="0" r="40" fill="url(#roseDark)"/>
-            <path d="M -24 -10 C -16 -32 20 -32 24 -10 C 32 14 -6 34 -24 -10 Z" fill="#e35d77" opacity="0.7"/>
-            <path d="M -15 -5 C -8 -22 12 -22 16 -5 C 20 10 -5 22 -15 -5 Z" fill="#a82843" opacity="0.8"/>
-            <path d="M -7 -1 C -4 -12 8 -12 8 -1 C 9 5 -3 10 -7 -1 Z" fill="#5e0c1b"/>
+            <g transform="scale(0.57)">
+              <use href="#petal" fill="#7a1830" transform="rotate(8)"/>
+              <use href="#petal" fill="#7a1830" transform="rotate(68)"/>
+              <use href="#petal" fill="#7a1830" transform="rotate(128)"/>
+              <use href="#petal" fill="#7a1830" transform="rotate(188)"/>
+              <use href="#petal" fill="#7a1830" transform="rotate(248)"/>
+              <use href="#petal" fill="#7a1830" transform="rotate(308)"/>
+              <g transform="scale(0.7)">
+                <use href="#petal" fill="#c23f5e" transform="rotate(38)"/>
+                <use href="#petal" fill="#c23f5e" transform="rotate(98)"/>
+                <use href="#petal" fill="#c23f5e" transform="rotate(158)"/>
+                <use href="#petal" fill="#c23f5e" transform="rotate(218)"/>
+                <use href="#petal" fill="#c23f5e" transform="rotate(278)"/>
+                <use href="#petal" fill="#c23f5e" transform="rotate(338)"/>
+              </g>
+              <g transform="scale(0.4)">
+                <use href="#petal" fill="#f0a0b7" transform="rotate(20)"/>
+                <use href="#petal" fill="#f0a0b7" transform="rotate(92)"/>
+                <use href="#petal" fill="#f0a0b7" transform="rotate(164)"/>
+                <use href="#petal" fill="#f0a0b7" transform="rotate(236)"/>
+                <use href="#petal" fill="#f0a0b7" transform="rotate(308)"/>
+              </g>
+              <path d="M-9,-3 C-9,-20 9,-20 9,-3 C11,6 -3,12 -9,-3 Z" fill="#4a0916"/>
+            </g>
           </g>
 
-          <g transform="translate(295, 270)">
+          <g transform="translate(295, 270) rotate(6)" filter="url(#softShadow)">
+            <ellipse cx="0" cy="9" rx="36" ry="25" fill="#3c2d29" opacity="0.13"/>
             <circle cx="0" cy="0" r="42" fill="url(#roseCream)"/>
-            <path d="M -25 -10 C -18 -32 20 -32 25 -10 C 34 14 -6 34 -25 -10 Z" fill="#eddcd0" opacity="0.7"/>
-            <path d="M -15 -5 C -8 -22 12 -22 16 -5 C 20 10 -5 22 -15 -5 Z" fill="#c7aa97" opacity="0.8"/>
-            <path d="M -7 -1 C -4 -12 8 -12 8 -1 C 9 5 -3 10 -7 -1 Z" fill="#8c6c58"/>
+            <g transform="scale(0.6)">
+              <use href="#petal" fill="#b89a80" transform="rotate(12)"/>
+              <use href="#petal" fill="#b89a80" transform="rotate(72)"/>
+              <use href="#petal" fill="#b89a80" transform="rotate(132)"/>
+              <use href="#petal" fill="#b89a80" transform="rotate(192)"/>
+              <use href="#petal" fill="#b89a80" transform="rotate(252)"/>
+              <use href="#petal" fill="#b89a80" transform="rotate(312)"/>
+              <g transform="scale(0.7)">
+                <use href="#petal" fill="#e2c8b8" transform="rotate(42)"/>
+                <use href="#petal" fill="#e2c8b8" transform="rotate(102)"/>
+                <use href="#petal" fill="#e2c8b8" transform="rotate(162)"/>
+                <use href="#petal" fill="#e2c8b8" transform="rotate(222)"/>
+                <use href="#petal" fill="#e2c8b8" transform="rotate(282)"/>
+                <use href="#petal" fill="#e2c8b8" transform="rotate(342)"/>
+              </g>
+              <g transform="scale(0.4)">
+                <use href="#petal" fill="#fcf2e8" transform="rotate(24)"/>
+                <use href="#petal" fill="#fcf2e8" transform="rotate(96)"/>
+                <use href="#petal" fill="#fcf2e8" transform="rotate(168)"/>
+                <use href="#petal" fill="#fcf2e8" transform="rotate(240)"/>
+                <use href="#petal" fill="#fcf2e8" transform="rotate(312)"/>
+              </g>
+              <path d="M-9,-3 C-9,-20 9,-20 9,-3 C11,6 -3,12 -9,-3 Z" fill="#8c6c58"/>
+            </g>
           </g>
 
           <!-- FRONT WRAPPERS & FOLDS -->
@@ -725,6 +900,17 @@
             <!-- Bow Center Knot -->
             <rect x="240" y="418" width="20" height="16" rx="5" fill="#872737"/>
             <rect x="242" y="420" width="16" height="12" rx="3" fill="url(#ribbonGrad)"/>
+          </g>
+
+          <!-- GIFT TAG -->
+          <g>
+            <path d="M247,433 C220,470 212,520 224,600" stroke="#c9b28f" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <g transform="translate(224, 645) rotate(-4)">
+              <path d="M -95 -38 L 70 -46 L 95 0 L 65 46 L -95 38 Z" fill="url(#tagPaper)" stroke="#b9976b" stroke-width="2" filter="url(#softShadow)"/>
+              <circle cx="-70" cy="-30" r="6" fill="none" stroke="#8a6b45" stroke-width="2.5"/>
+              <text x="-8" y="-8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="19" fill="#5c3d2e">From your bxtches</text>
+              <text x="-8" y="20" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="21" fill="#872737">&quot;BOOBIES&quot;</text>
+            </g>
           </g>
         </svg>
       </div>
